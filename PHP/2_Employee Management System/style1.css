@@ -1,0 +1,129 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    background-image: linear-gradient(-90deg, #93a5cf 11.2%, #e4efe9 98.6%);
+    color: black;
+}
+
+.navtop {
+    background-color: #ffffff6f;
+    height: 60px;
+    width: 100%;
+    margin-bottom: 100px;
+}
+
+.navtop div {
+    display: flex;
+    margin: 0 auto;
+    height: 100%;
+    
+}
+
+.navtop div h1,
+.navtop div a {
+    display: inline-flex;
+    align-items: center;
+}
+
+
+.navtop div h1 {
+    flex: 1;
+    font-size: 24px;
+    padding: 0;
+    margin: 0;
+    font-weight: normal;
+}
+
+.navtop div a {
+    padding: 0 20px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.navtop div a i {
+    margin: 9px;
+}
+
+.navtop div a:hover {
+    color: rgb(104, 82, 113);
+}
+
+.content {
+    width: 900px;
+    margin: 0 auto;
+}
+
+.content h2 {
+    margin: 0;
+    padding: 25px 0;
+    font-size: 25px;
+}
+
+main {
+    margin: 400px;
+    margin-top: 10px;
+    margin-bottom: 93px;
+}
+
+.summary {
+    margin-bottom: 80px;
+}
+
+.summary h2 {
+    margin-top: 0;
+}
+
+.summary-cards {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card {
+    background-color: aliceblue;
+    box-shadow: 0px 1px 80px 10px rgba(0, 0, 0, 0.200);
+    padding: 20px;
+    border-radius: 5px;
+    flex-basis: 30%;
+}
+
+.recent-activity {
+    background-color: aliceblue;
+    box-shadow: 0px 1px 80px 10px rgba(0, 0, 0, 0.200);
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.recent-activity h2 {
+    margin-top: 10px;
+
+}
+
+.recent-activity table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.recent-activity th {
+    background-color: #333;
+    padding: 10px;
+    color: aliceblue;
+
+}
+
+.recent-activity td {
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}

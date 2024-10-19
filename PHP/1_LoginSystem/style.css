@@ -1,0 +1,173 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Lucida Sans Unicode';
+}
+
+html,
+body {
+  display: grid;
+  width: 100%;
+  place-items: center;
+  /* background-image: linear-gradient(-90deg, #764BA2 11.2%, #667EEA 98.6%); */
+  background-image: linear-gradient(-90deg, #93a5cf 11.2%, #e4efe9 98.6%);
+
+
+}
+
+.wrapper {
+
+  width: 375px;
+  background-color: rgba(0, 0, 0, 0.214);
+  box-shadow: 0px 1px 80px 10px rgba(0, 0, 0, 0.200);
+  margin-top: 120px;
+
+
+}
+
+.wrapper .title {
+  font-size: 30px;
+  font-weight: 600;
+  text-align: center;
+  line-height: 100px;
+  /* color: aliceblue; */
+  user-select: none;
+}
+
+.wrapper form {
+  padding: 10px 30px 50px 30px;
+}
+
+.wrapper form .field {
+  height: 50px;
+  width: 100%;
+  margin-top: 20px;
+  position: relative;
+}
+
+.wrapper form .field input,
+select {
+  height: 100%;
+  width: 100%;
+  outline: none;
+  font-size: 17px;
+  padding-left: 20px;
+  color: gray;
+  border: 1px solid lightgrey;
+  /* background-color: rgb(204, 204, 204); */
+  transition: all 0.3s ease;
+}
+
+
+
+.wrapper form .field1 input {
+  height: 100%;
+  width: 100%;
+  outline: none;
+  margin-top: 10px;
+  margin-bottom: -10px;
+  font-size: 18px;
+  padding-left: 20px;
+  background-color: rgba(0, 0, 0, 0);
+  border: 1px solid rgba(211, 211, 211, 0);
+  transition: all 0.3s ease;
+}
+
+
+/* .wrapper form label {
+  color: beige;
+} */
+
+form .content {
+  display: flex;
+  width: 100%;
+  height: 50px;
+  font-size: 16px;
+  align-items: center;
+  justify-content: space-around;
+}
+
+
+form .field input[type="submit"] {
+  color: aliceblue;
+  border: none;
+  padding-left: 0;
+  margin-top: -10px;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  background: #000000d8;
+
+  transition: all 0.3s ease;
+}
+
+form .field input[type="submit"]:active {
+  transform: scale(0.95);
+}
+
+form .signup-link {
+  /* color: aliceblue; */
+  margin-top: 20px;
+  margin-bottom: 1px;
+  text-align: center;
+}
+
+form .pass-link a,
+form .signup-link a {
+  /* color: rgb(214, 254, 245); */
+  text-decoration: none;
+}
+
+form .pass-link a:hover,
+form .signup-link a:hover {
+  text-decoration: underline;
+}
+
+
+
+.navtop {
+  background-color: #ffffff6f;
+  height: 60px;
+  width: 100%;
+}
+
+.navtop div {
+  display: flex;
+  margin: 0 auto;
+  height: 100%;
+}
+
+.navtop div h1,
+.navtop div a {
+  display: inline-flex;
+  align-items: center;
+}
+
+.navtop div h1 {
+  flex: 1;
+  font-size: 24px;
+  padding: 0;
+  margin: 0;
+  font-weight: normal;
+}
+
+.navtop div a {
+  padding: 0 20px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.navtop div a i {
+  margin: 9px;
+}
+
+.navtop div a:hover {
+  color: rgb(104, 82, 113);
+}
+
+li {
+  color: black;
+  margin-top: 35px;
+  font-weight: 800;
+}

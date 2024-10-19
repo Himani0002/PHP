@@ -1,0 +1,30 @@
+body {
+  background-image: linear-gradient(-90deg, #93a5cf 11.2%, #e4efe9 98.6%);
+
+
+}
+h2{
+    color: black;
+    margin-bottom:50px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+th,
+td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+    background-color: aliceblue;
+}
+
+th {
+    
+    background-color: #b2fff1;
+    font-weight: bold;
+}

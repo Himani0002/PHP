@@ -1,0 +1,195 @@
+ <!-- <?php
+
+  include 'config.php';
+
+  $errors = [];
+
+  if (isset($_POST['submit'])) {
+  
+    $fullname = mysqli_real_escape_string($conn, $_POST['fullname']);
+    $username = mysqli_real_escape_string($conn, $_POST['username']);
+    $email = mysqli_real_escape_string($conn, $_POST['email']);
+    $phnumber = mysqli_real_escape_string($conn, $_POST['phnumber']);
+    $password = mysqli_real_escape_string($conn, $_POST['password']);
+    $confirm_password = mysqli_real_escape_string($conn, $_POST['confirm_password']);
+    $gender = mysqli_real_escape_string($conn, $_POST['gender']);
+    
+    // Validate fullname
+    if (empty($fullname)) {
+      $errors[] = "Fullname is required.";
+    } elseif (strlen($fullname) < 3 || strlen($fullname) > 255) {
+      $errors[] = "Fullname must be between 3 and 255 characters.";
+    }
+    
+    // Validate username
+    if (empty($username)) {
+      $errors[] = "Username is required.";
+    } elseif (strlen($username) < 3 || strlen($username) > 255) {
+      $errors[] = "Username must be between 3 and 255 characters.";
+    } else {
+      // Check if username already exists
+      $username_check_query = "SELECT * FROM Users WHERE UUsername = '$username'";
+      $username_check_result = mysqli_query($conn, $username_check_query);
+    
+      if (mysqli_num_rows($username_check_result) > 0) {
+        $errors[] = "Username is already taken.";
+      }
+    }
+    
+    // Validate email
+    if (empty($email)) {
+      $errors[] = "Email is required.";
+    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    
+      $errors[] = "Email is not valid.";
+    }
+    
+    
+    // Validate Phnumber
+    if (empty($phnumber)) {
+      $errors[] = "Phone number is required.";
+    } elseif ((strlen($phnumber) >= 11)) {
+      $errors[] = "Phone number must be at least 10 characters.";
+    } else {
+      // Check if phnumber already exists
+      $phnumber_check_query = "SELECT * FROM Users WHERE UPhNumber = '$phnumber'";
+      $phnumber_check_result = mysqli_query($conn, $phnumber_check_query);
+    
+      if (mysqli_num_rows($phnumber_check_result) > 0) {
+        $errors[] = "Phone Number is already taken.";
+      }
+    }
+    
+    // Validate password
+    if (empty($password)) {
+      $errors[] = "Password is required.";
+    } elseif (strlen($password) < 6) {
+      $errors[] = "Password must be at least 6 characters.";
+    } elseif ($password !== $confirm_password) {
+      $errors[] = "Passwords do not match.";
+    }
+
+    // If no validation errors, insert user
+    
+    if (empty($errors)) {
+      $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+      $query = "INSERT INTO  Users(UFullname ,UUsername ,UEmail, UPhNumber, UPassword, UGender) VALUES ('$fullname','$username','$email','$phnumber', '$hashed_password','$gender')";
+
+      if (mysqli_query($conn, $query)) {
+          header('Location: login.php');
+      } else {
+          echo "Error: " . $query . "<br>" . mysqli_error($conn);
+      }
+  }
+}
+
+  ?> -->
+
+ 
+ <!DOCTYPE html>
+ <html lang="en">
+
+ <head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>User Registration</title>
+   <link rel="stylesheet" href="style2.css">
+ </head>
+
+ <body>
+
+   <div class="container">
+     <div class="title">Registration</div>
+     </br>
+
+     <div class="content">
+       <form method="post">
+         <div class="user-details">
+
+           <div class="input-box" for="fullname">
+             <span class="details">Full Name</span>
+             <input type="text" id="fullname" name="fullname" placeholder="Enter your name" required>
+           </div>
+
+           <div class="input-box" for="username">
+             <span class="details">Username</span>
+             <input type="text" id="username" name="username" placeholder="Enter your username" required>
+           </div>
+
+           <div class="input-box" for="email">
+             <span class="details">Email</span>
+             <input type="email" id="email" name="email" placeholder="Enter your email" required>
+           </div>
+
+           <div class="input-box" for="phnumber">
+             <span class="details">Phone Number</span>
+             <input type="number" id="phnumber" name="phnumber" placeholder="Enter your number" required>
+           </div>
+
+           <div class="input-box" for="password">
+             <span class="details">Password</span>
+             <input type="password" id="password" name="password" placeholder="Enter your password" required>
+           </div>
+
+           <div class="input-box" for="confirm_password">
+             <span class="details">Confirm Password</span>
+             <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm your password" required>
+           </div>
+
+         </div>
+
+         </br>
+         <div class="gender-details">
+
+           <span class="gender-title">Gender</span>
+
+           <input type="radio" name="gender" value="Female" checked> Female
+           <input type="radio" name="gender" value="Male"> Male
+           
+           <!-- <div class="gender-details">
+    
+          <input type="radio" name="gender" id="dot-1">
+          <input type="radio" name="gender" id="dot-2">
+          
+          <span class="gender-title">Gender</span>
+          <div class="category">
+          
+          <label for="dot-1">
+            <span class="dot one"></span>
+            <span class="gender">Male</span>
+          </label>
+          
+          <label for="dot-2">
+            <span class="dot two"></span>
+            <span class="gender">Female</span>
+          </label>
+          
+    </div>
+ -->
+
+           <div class="button">
+             <input type="submit" name="submit" value="Register" for="submit">
+           </div>
+           <p class="la">Already have an account? &nbsp;<a href="login.php">Login</a></p>
+
+       </form>
+       <br>
+       <br>
+       
+       <!-- <?php if (!empty($errors)) : ?>
+         <ul>
+           <?php foreach ($errors as $error) : ?>
+             <li><?php echo $error; ?></li>
+
+           <?php endforeach; ?>
+         </ul>
+       <?php endif; ?>
+ -->
+
+     </div>
+   </div>
+
+
+ </body>
+
+ </html>
